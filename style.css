@@ -97,7 +97,7 @@ a.undecorate {
 a.social {
   margin: 0 1em;
 }
-a.social > svg {
+a.social > img {
   width: 2em;
   height: 2em;
   background: white;
