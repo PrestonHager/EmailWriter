@@ -1,11 +1,10 @@
 body {
   box-shadow: 0 0 0.1em 0 rgba(0,0,0,0.3);
-  margin: 1em auto;
-  flex: 1;
+  margin: 1em 20em;
+  /* flex: 1; */
   padding: 0;
   position: relative;
   font-family: 'Nunito', 'Avenir', sans-serif;
-  max-width: 40em;
 }
 
 div#button-wrapper {
@@ -23,9 +22,10 @@ button.action-button {
   cursor: pointer;
 }
 
-div#header {
+div.header {
   padding-top: 1em;
   background: linear-gradient(45deg,#B4E6F6,#E6F7FC);
+  width: 100%;
 }
 
 div.img-wrapper {
@@ -42,7 +42,7 @@ div.img-wrapper {
   margin: auto 0;
 }
 
-#text-title {
+.text-title {
   text-transform: uppercase;
   text-align: center;
   background-color: #153570;
@@ -50,15 +50,16 @@ div.img-wrapper {
   padding: 0.5em 0;
 }
 
-div#content {
-  margin: 1em auto;
-  max-width: 80%;
+div.content {
+  margin: 1em 5em;
+  width: 100%;
+  /* max-width: 80%; */
 }
 
-#text-body {
+.text-body {
   border: none;
   padding: 0.15em;
-  width: 100%;
+  width: 80%;
   height: 25em;
   font-family: 'Nunito', 'Avenir', sans-serif;
   font-size: 1em;
@@ -66,13 +67,11 @@ div#content {
   overflow: auto;
 }
 
-#footer {
-  position: absolute;
-  bottom: 0;
+.footer {
   width: 100%;
 }
 
-button#cta-button {
+button.cta-button {
   background-color: #153570;
   color: white;
   border: none;
@@ -81,12 +80,12 @@ button#cta-button {
   cursor: pointer;
 }
 
-div#socials-wrapper {
+div.socials-wrapper {
   background-color: #38BFE7;
   text-align: center;
   padding: 1em 2em;
 }
-div#socials-wrapper > p {
+div.socials-wrapper > p {
   margin: 0.5em 0;
 }
 
@@ -102,5 +101,5 @@ a.social > svg {
   width: 2em;
   height: 2em;
   background: white;
-  border-radius: 0.5em;
+  border-radius: 0.25em;
 }

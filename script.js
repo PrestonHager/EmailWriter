@@ -7,7 +7,6 @@ function start() {
   addEventListeners();
   // get the value of 1em
   fontSize = parseFloat(getComputedStyle(document.querySelector('p')).fontSize);;
-  adjustContentMargin();
   tippy("#text-cta-button", {
     content: 'Link: <input id="text-cta-link" style="width:20em;">',
     trigger: 'click',
@@ -63,7 +62,6 @@ function togglePreviewEmail(e) {
     document.getElementById("preview-button").innerText = "Edit";
     // Must add the event listeners back on
     addEventListeners();
-    adjustContentMargin();
     inPreview = true;
   } else {
     document.body.innerHTML = originalHTML;
@@ -89,9 +87,8 @@ function saveEmail() {
               cssStyles += (style[item].cssText);
       }
   }
-  script = '<script>function adjustContentHeight(){let fontSize=parseFloat(getComputedStyle(document.querySelector("p")).fontSize);let height=document.getElementById("footer").clientHeight;let contentElement=document.getElementById("content");let initialHeight=contentElement.clientHeight;contentElement.style.height=initialHeight+fontSize+height+"px";contentElement.style.marginBottom="1em";}<\/script>';
   style = '<style>' + cssStyles + '</style>';
-  saveHTML = '<html><head>' + style + '</head><body style="box-shadow:0 0 0.1em 0 rgba(0,0,0,0.3);margin:1em auto;flex:1;padding:0;position:relative;font-family:\'Nunito\',\'Avenir\',sans-serif;max-width:40em;" onload="adjustContentHeight();">' + saveHTML + script + '</body></html>';
+  saveHTML = '<html><body>' + style + saveHTML + '</body></html>';
   downloadFile(saveHTML, "email.html", "text/html");
 }
 
@@ -110,20 +107,6 @@ function addEventListeners() {
       }
     });
   });
-  document.querySelectorAll(".text").forEach(function(el) {
-    el.addEventListener("keydown", function(e) {
-      if (e.keyCode === 13 || e.keyCode === 8) {
-        window.setTimeout(adjustContentMargin, 50);
-      }
-    });
-  });
-}
-
-function adjustContentMargin() {
-  // Add the footer height as a bottom margin to the content
-  let height = document.getElementById("footer").clientHeight;
-  let contentElement = document.getElementById("content");
-  contentElement.style.marginBottom = fontSize + height + 'px';
 }
 
 Element.prototype.remove = function() {
